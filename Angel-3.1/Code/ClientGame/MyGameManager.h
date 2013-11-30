@@ -1,6 +1,5 @@
 #include "stdafx.h"
-#include "c:\users\einherjar\documents\github\angel-3.1\angel-3.1\code\clientgame\towergrid.h"
-#include "c:\users\einherjar\documents\github\angel-3.1\angel-3.1\code\clientgame\slig.h"
+#include "tower.h"
 
 #define theGame MyGameManager::GetInstance()
 
@@ -18,14 +17,14 @@ protected:
 	static MyGameManager* m_MyGameManager;
 	
 private:
-	TowerGrid* m_towerGrid;
+	Tower* m_towerGrid;
 	//Actor* m_Actor;
 	//Actor* m_obstacle;
 	//Actor* m_TopSlig;
 	//Actor* m_LeftSlig;
 	//Actor* m_RightSlig;
-	bool m_animatedRight;
-	bool m_animatedLeft;
-	bool m_animatedUp;
-	bool m_animatedDown;
+	//bool m_animatedRight;
+	//bool m_animatedLeft;
+	//bool m_animatedUp;
+	//bool m_animatedDown;
 };

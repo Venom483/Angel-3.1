@@ -5,13 +5,13 @@ MyGameManager* MyGameManager::m_MyGameManager = NULL;
 
 MyGameManager::MyGameManager()
 {
-	FullScreenActor* Background = new FullScreenActor();
-	if(!Background->SetSprite("Jellyfish.tga"))
-		std::cout << "failed to load background sprite" << std::endl;
+	//FullScreenActor* Background = new FullScreenActor();
+	//if(!Background->SetSprite("Jellyfish.tga"))
+	//	std::cout << "failed to load background sprite" << std::endl;
 
-	theWorld.Add(Background);
+	//theWorld.Add(Background);
 
-	m_towerGrid = new TowerGrid();
+	m_towerGrid = new Tower[100,100];
 
 	//m_Actor = new Actor();
 	//theWorld.Add(m_Actor);
@@ -21,10 +21,10 @@ MyGameManager::MyGameManager()
 	//m_Actor->SetSpriteFrame(0);
 	//m_Actor->SetLayer(3);
 
-	m_animatedRight = false;
-	m_animatedLeft = false;
-	m_animatedUp = false;
-	m_animatedDown = false;
+	//m_animatedRight = false;
+	//m_animatedLeft = false;
+	//m_animatedUp = false;
+	//m_animatedDown = false;
 
 	//m_LeftSlig = new Actor();
 	//theWorld.Add(m_LeftSlig);
@@ -123,10 +123,10 @@ void MyGameManager::Update(float dt)
 
 void MyGameManager::MouseDownEvent(Vec2i screenCoordinates, MouseButtonInput button)
 {
-	unsigned int arrPosX = ceil(MathUtil::ScreenToWorld(screenCoordinates).X + 100);
-	unsigned int arrPosY = ceil(MathUtil::ScreenToWorld(screenCoordinates).Y + 100);
-	Vector2 towerCoords = MathUtil::ScreenToWorld(screenCoordinates);
-	m_towerGrid->AddTower(Slig(towerCoords), arrPosX, arrPosY);
-	Tower* newTower = m_towerGrid->GetTower(arrPosX, arrPosY);
-	theWorld.Add(newTower);
+	Vector2 towerCoords;
+	unsigned int arrPosX = screenCoordinates.X / 6;
+	unsigned int arrPosY = screenCoordinates.Y / 6;
+	towerCoords.X = arrPosX - 100 * 2;
+	towerCoords.Y = arrPosY * -1 + 100 * 2;
+	m_towerGrid[arrPosX,arrPosY].PlaceSlig(towerCoords);
 }

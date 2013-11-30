@@ -29,8 +29,6 @@
     </ClCompile>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MyGameManager.cpp" />
-    <ClCompile Include="Slig.cpp" />
-    <ClCompile Include="TowerGrid.cpp" />
     <ClCompile Include="Tower.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -46,8 +44,6 @@
       <Filter>sys</Filter>
     </ClInclude>
     <ClInclude Include="MyGameManager.h" />
-    <ClInclude Include="Slig.h" />
-    <ClInclude Include="TowerGrid.h" />
     <ClInclude Include="Tower.h" />
   </ItemGroup>
   <ItemGroup>

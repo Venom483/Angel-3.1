@@ -1,11 +1,17 @@
 #pragma once
-#include "c:\users\einherjar\documents\github\angel-3.1\angel-3.1\code\angel\actors\actor.h"
-class Tower :
-	public Actor
+
+class Tower : public Actor
 {
 public:
-	Tower(void);
-	Tower(Vector2 towerCoords);
+	Tower();
+	Tower(const Tower& other);
+	Tower& operator=(const Tower& other);
 	~Tower(void);
+	void PlaceSlig(Vector2 towerCoords);
+	void PlaceFlyingSlig(Vector2 towerCoords);
+	void PlaceSecurityClaw(Vector2 towerCoords);
+private:
+	Vector2 m_towerCoords;
+	Actor* m_actor;
 };
 

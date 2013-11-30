@@ -9,12 +9,17 @@ TowerGrid::TowerGrid(void)
 	//empty
 }
 
-void TowerGrid::AddTower(Tower newTower, unsigned int arrPosX, unsigned int arrPosY)
+void TowerGrid::AddTower(unsigned int type, Vector2 towerCoords, unsigned int arrPosX, unsigned int arrPosY)
 {
-
-	if(typeid(m_towerArr[arrPosX, arrPosY]).name() == nullptr)
+	switch(type)
 	{
-		m_towerArr[arrPosX, arrPosY] = newTower;
+		case 1:
+			if(typeid(m_towerArr[arrPosX, arrPosY]).name() == nullptr)
+			{
+				Slig* slig = new Slig(towerCoords);
+				theWorld.Add(slig);
+				m_towerArr[arrPosX, arrPosY] = slig;
+			}
 	}
 }
 
