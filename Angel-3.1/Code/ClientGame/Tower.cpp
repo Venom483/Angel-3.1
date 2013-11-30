@@ -33,7 +33,7 @@ void Tower::PlaceSlig(Vector2 towerCoords)
 {
 	m_towerCoords = towerCoords;
 	m_actor->SetColor(1,1,1,1);
-	m_actor->SetSize(3.f, 1.26f);
+	m_actor->SetSize(1.0f, 0.42f);
 	m_actor->SetPosition(towerCoords.X, towerCoords.Y);
 	m_actor->LoadSpriteFrames("c:/users/einherjar/documents/github/angel-3.1/angel-3.1/code/clientgame/SligShootingRight/SligShootingRight_001.png");
 	m_actor->PlaySpriteAnimation(0.125f, SAT_Loop, 3, 5, "SligShootingRight");

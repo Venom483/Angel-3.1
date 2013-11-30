@@ -1,6 +1,6 @@
 #pragma once
 
-class Tower : public Actor
+class Tower
 {
 public:
 	Tower();

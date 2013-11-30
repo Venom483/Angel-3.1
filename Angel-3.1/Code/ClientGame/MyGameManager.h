@@ -18,6 +18,8 @@ protected:
 	
 private:
 	Tower* m_towerGrid;
+	Actor* m_Abe;
+	unsigned int m_frame;
 	//Actor* m_Actor;
 	//Actor* m_obstacle;
 	//Actor* m_TopSlig;
