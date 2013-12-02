@@ -2,36 +2,23 @@
 #include "Tower.h"
 
 
-Tower::Tower()
-	: m_actor(new Actor())
+Tower::Tower()	
 {
-	theWorld.Add(m_actor);
-}
-
-Tower::Tower(const Tower& other)
-	: m_actor(other.m_actor)
-{
-	theWorld.Add(m_actor);
-}
-
-Tower& Tower::operator=(const Tower& other)
-{
-	if(this != &other)
-	{
-		m_actor = other.m_actor;
-		m_towerCoords = other.m_towerCoords;
-	}
-	return *this;
 }
 
 Tower::~Tower(void)
 {
-	delete m_actor;
 }
 
 void Tower::PlaceSlig(Vector2 towerCoords)
 {
+	m_actor= new Actor();
+	theWorld.Add(m_actor);
 	m_towerCoords = towerCoords;
+	m_type = 1;
+	m_rng = 2.0f;
+	m_dmg = 1;
+	m_rof = 0.375f;
 	m_actor->SetColor(1,1,1,1);
 	m_actor->SetSize(1.0f, 0.42f);
 	m_actor->SetPosition(towerCoords.X, towerCoords.Y);

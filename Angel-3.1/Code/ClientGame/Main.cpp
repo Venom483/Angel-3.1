@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 	theWorld.Initialize(600, 600);
 	
 	//adds the default grid so you can more easily place Actors
-	theWorld.Add(new GridActor(), -1);
+	theWorld.Add(new GridActor(Color(0.8,0.8,0.8,1),Color(0.8,0.8,0.8,1), 1.0, Vector2(-10.0f, -10.0f), Vector2(10.0f, 10.0f)), -1);
 	
 	theWorld.SetGameManager(&theGame);
 

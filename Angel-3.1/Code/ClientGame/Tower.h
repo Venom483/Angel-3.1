@@ -4,8 +4,6 @@ class Tower
 {
 public:
 	Tower();
-	Tower(const Tower& other);
-	Tower& operator=(const Tower& other);
 	~Tower(void);
 	void PlaceSlig(Vector2 towerCoords);
 	void PlaceFlyingSlig(Vector2 towerCoords);
@@ -13,5 +11,9 @@ public:
 private:
 	Vector2 m_towerCoords;
 	Actor* m_actor;
+	unsigned int m_type;
+	float m_rng;
+	unsigned int m_dmg;
+	float m_rof;
 };
 

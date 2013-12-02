@@ -5,11 +5,13 @@ MyGameManager* MyGameManager::m_MyGameManager = NULL;
 
 MyGameManager::MyGameManager()
 {
-	//FullScreenActor* Background = new FullScreenActor();
-	//if(!Background->SetSprite("Jellyfish.tga"))
-	//	std::cout << "failed to load background sprite" << std::endl;
+	FullScreenActor* Background = new FullScreenActor();
+	if(!Background->SetSprite("TestMap.png"))
+		std::cout << "failed to load background sprite" << std::endl;
 
-	//theWorld.Add(Background);
+	theWorld.Add(Background);
+
+	m_Level = new Level("1");
 
 	m_towerGrid = new Tower[20,20];
 
@@ -17,7 +19,7 @@ MyGameManager::MyGameManager()
 	theWorld.Add(m_Abe);
 	m_Abe->SetColor(1,1,1,1);
 	m_Abe->SetSize(1.0f, 0.54f);
-	m_Abe->SetPosition(9.5f, 8.5f);
+	m_Abe->SetPosition(10.0f, 8.5f);
 	m_Abe->LoadSpriteFrames("MudokonRunningLeft/MudokonRunningLeft_001.png");
 	m_Abe->PlaySpriteAnimation(0.15f, SAT_Loop, 0, 5, "MudokonRunningLeft");
 
@@ -54,8 +56,6 @@ MyGameManager::MyGameManager()
 	//m_TopSlig->SetPosition(0.0f, 4.0f);
 	//m_TopSlig->LoadSpriteFrames("SligShootingTowards/SligShootingTowards_001.png");
 	//m_TopSlig->PlaySpriteAnimation(0.125f, SAT_Loop, 3, 13, "SligShootingRight");
-
-	m_frame = 0;
 }
 
 MyGameManager& MyGameManager::GetInstance()
@@ -70,31 +70,66 @@ MyGameManager& MyGameManager::GetInstance()
 
 void MyGameManager::Update(float dt)
 {
-	if(m_frame == 200)
-		m_Abe->MoveTo(Vector2(8.5f, 8.5f), 2.0f, true);
-	if(m_frame == 1200)
-		m_Abe->MoveTo(Vector2(7.5f, 8.5f), 2.0f, true);
-	if(m_frame == 2200)
-		m_Abe->MoveTo(Vector2(6.5f, 8.5f), 2.0f, true);
-	if(m_frame == 3200)
-		m_Abe->MoveTo(Vector2(5.5f, 8.5f), 2.0f, true);
-	if(m_frame == 4200)
-		m_Abe->MoveTo(Vector2(5.5f, 7.5f), 2.0f, true);
-	if(m_frame == 5200)
-		m_Abe->MoveTo(Vector2(5.5f, 6.5f), 2.0f, true);
-	if(m_frame == 6200)
-		m_Abe->MoveTo(Vector2(5.5f, 5.5f), 2.0f, true);
-	if(m_frame == 7200)
-		m_Abe->MoveTo(Vector2(4.5f, 5.5f), 2.0f, true);
-	if(m_frame == 8200)
-		m_Abe->MoveTo(Vector2(3.5f, 5.5f), 2.0f, true);
-	if(m_frame == 9200)
-		m_Abe->MoveTo(Vector2(2.5f, 5.5f), 2.0f, true);
-	if(m_frame == 10200)
-		m_Abe->MoveTo(Vector2(2.5f, 4.5f), 2.0f, true);
-	if(m_frame == 11200)
-		m_Abe->MoveTo(Vector2(2.5f, 3.5f), 2.0f, true);
-	++m_frame;
+	m_Level->MoveEnemy(m_Abe);
+	//if(m_Abe->GetPosition() == Vector2(9.5f, 8.5f))
+	//	m_Abe->MoveTo(Vector2(8.5f, 8.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(8.5f, 8.5f))
+	//	m_Abe->MoveTo(Vector2(7.5f, 8.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(7.5f, 8.5f))
+	//	m_Abe->MoveTo(Vector2(6.5f, 8.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(6.5f, 8.5f))
+	//	m_Abe->MoveTo(Vector2(5.5f, 8.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(5.5f, 8.5f))
+	//	m_Abe->MoveTo(Vector2(4.5f, 8.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(4.5f, 8.5f))
+	//	m_Abe->MoveTo(Vector2(3.5f, 8.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(3.5f, 8.5f))
+	//	m_Abe->MoveTo(Vector2(2.5f, 8.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(2.5f, 8.5f))
+	//	m_Abe->MoveTo(Vector2(2.5f, 7.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(2.5f, 7.5f))
+	//	m_Abe->MoveTo(Vector2(2.5f, 6.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(2.5f, 6.5f))
+	//	m_Abe->MoveTo(Vector2(2.5f, 5.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(2.5f, 5.5f))
+	//	m_Abe->MoveTo(Vector2(2.5f, 4.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(2.5f, 4.5f))
+	//	m_Abe->MoveTo(Vector2(2.5f, 3.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(2.5f, 3.5f))
+	//	m_Abe->MoveTo(Vector2(2.5f, 2.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(2.5f, 2.5f))
+	//	m_Abe->MoveTo(Vector2(3.5f, 2.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(3.5f, 2.5f))
+	//	m_Abe->MoveTo(Vector2(3.5f, 1.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(3.5f, 1.5f))
+	//	m_Abe->MoveTo(Vector2(3.5f, 0.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(3.5f, 0.5f))
+	//	m_Abe->MoveTo(Vector2(2.5f, 0.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(2.5f, 0.5f))
+	//	m_Abe->MoveTo(Vector2(2.5f, -0.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(2.5f, -0.5f))
+	//	m_Abe->MoveTo(Vector2(1.5f, -0.5f), 2.0f, true);
+
+	//if(m_Abe->GetPosition() == Vector2(1.5f, -0.5f))
+	//	m_Abe->MoveTo(Vector2(1.5f, -0.5f), 2.0f, true);
 
 	//Vector2 position = 	m_Actor->GetPosition();
 

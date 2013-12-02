@@ -172,6 +172,8 @@ cd ..\Tools\BuildScripts\
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="MyGameManager.cpp" />
     <ClCompile Include="Tower.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -184,6 +186,9 @@ cd ..\Tools\BuildScripts\
     <ResourceCompile Include="platforms\win\ClientGame.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="defines.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="MyGameManager.h" />
     <ClInclude Include="platforms\win\resource.h" />
     <ClInclude Include="Tower.h" />
