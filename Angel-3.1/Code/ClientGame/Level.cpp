@@ -51,8 +51,6 @@ void Level::InitLevel()
 	std::string filepathToLvl = "Level";
 	filepathToLvl += m_Level;
 	filepathToLvl += ".txt";
-	//strcat(filepathToLvl, m_Level.c_str());
-	//strcat(filepathToLvl, ".txt");
 
 	i = 0;
 	infile.open(filepathToLvl);

@@ -22,13 +22,4 @@ private:
 	Level* m_Level;
 	Tower* m_towerGrid;
 	Actor* m_Abe;
-	//Actor* m_Actor;
-	//Actor* m_obstacle;
-	//Actor* m_TopSlig;
-	//Actor* m_LeftSlig;
-	//Actor* m_RightSlig;
-	//bool m_animatedRight;
-	//bool m_animatedLeft;
-	//bool m_animatedUp;
-	//bool m_animatedDown;
 };
